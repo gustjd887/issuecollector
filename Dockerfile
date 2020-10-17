@@ -1,10 +1,8 @@
-# issue/python/Dockerfile
+FROM python:3.8.5
 
-FROM	python:latest
-
-RUN	apt update -y && apt install -y cron vim
+RUN	apt update -y
 WORKDIR	/app
-COPY	requirements.txt /app
+COPY ./ /app
 RUN	pip install -r requirements.txt
 ENV	PYTHONUNBUFFERED=1
 ENV	TZ=Asia/Seoul
