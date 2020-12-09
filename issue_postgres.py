@@ -1,7 +1,8 @@
 import psycopg2
+import os
 
 class IssueDB():
-    def __init__(self, database="issue", user='gustjd887', password='gustjd25', host='10.43.221.168', port='5432'):
+    def __init__(self, database=os.environ['DATABASE'], user=os.environ['USER'], password=os.environ['PASWRD'], host=os.environ['HOST'], port=os.environ['PORT']):
         self.conn = psycopg2.connect(database=database, user=user, password=password, host=host, port=port)
         self.cur = self.conn.cursor()
 
